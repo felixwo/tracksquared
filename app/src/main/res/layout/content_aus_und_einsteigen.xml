@@ -9,6 +9,17 @@
         tools:showIn="@layout/activity_aus_und_einsteigen"
         tools:context=".AusUndEinsteigenActivity">
 
+    <EditText
+            android:hint="@string/hint_enter_train_id"
+            android:id="@+id/editTextConnection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/leaveOrEnterTrainButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
     <Button
             android:padding="32dp"
             app:layout_constraintBottom_toBottomOf="parent"

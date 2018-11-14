@@ -5,8 +5,10 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class AusUndEinsteigenActivity extends AppCompatActivity {
@@ -14,6 +16,8 @@ public class AusUndEinsteigenActivity extends AppCompatActivity {
     public static final String EXTRA_AUS_ODER_EINSTEIGEN_ID = "ausOderEinsteigenID";
     public static final int AUSSTEIGEN = 0;
     public static final int EINSTEIGEN = 1;
+
+    private EditText editTextConnection;
 
     private int einOderAus;
     private String title;
@@ -25,17 +29,17 @@ public class AusUndEinsteigenActivity extends AppCompatActivity {
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        int ausOderEin = getIntent().getIntExtra(EXTRA_AUS_ODER_EINSTEIGEN_ID,-1);
-        if(ausOderEin == AUSSTEIGEN){
+        einOderAus = getIntent().getIntExtra(EXTRA_AUS_ODER_EINSTEIGEN_ID,-1);
+        if(einOderAus == AUSSTEIGEN){
             title = getApplicationContext().getString(R.string.leaving);
             setTitle(R.string.leaving);
-        }else if (ausOderEin == EINSTEIGEN){
+        }else if (einOderAus == EINSTEIGEN){
             title = getApplicationContext().getString(R.string.joining);
             setTitle(R.string.joining);
         }else {
-            Toast.makeText(getApplicationContext(),"error, false acces of the activity",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"error, false access of the activity",Toast.LENGTH_LONG).show();
         }
-
+        editTextConnection = findViewById(R.id.editTextConnection);
         Button buttonLeaveOrEnter = findViewById(R.id.leaveOrEnterTrainButton);
         buttonLeaveOrEnter.setText(title);
         if (einOderAus == EINSTEIGEN){
@@ -46,7 +50,8 @@ public class AusUndEinsteigenActivity extends AppCompatActivity {
         buttonLeaveOrEnter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Du bist ausgestiegen.",Toast.LENGTH_LONG).show();
+                //todo enter train
+                Toast.makeText(getApplicationContext(),title + ",\nZugnummer: " + editTextConnection.getText().toString(),Toast.LENGTH_LONG).show();
             }
         });
 
