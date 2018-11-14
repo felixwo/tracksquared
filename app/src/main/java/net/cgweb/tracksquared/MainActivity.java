@@ -8,23 +8,24 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button joinButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        joinButton = findViewById(R.id.buttonJoining);
+        Button joinButton = findViewById(R.id.buttonJoining);
         joinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                joiningButtonClicked(v);
+                startActivity(new Intent(getApplicationContext(), AusUndEinsteigenActivity.class).putExtra(AusUndEinsteigenActivity.EXTRA_AUS_ODER_EINSTEIGEN_ID,AusUndEinsteigenActivity.EINSTEIGEN));
             }
         });
-    }
-
-    private void joiningButtonClicked(View view) {
-        startActivity(new Intent(getApplicationContext(), AusUndEinsteigenActivity.class));
+        Button leaveButton = findViewById(R.id.buttonLeaving);
+        leaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), AusUndEinsteigenActivity.class).putExtra(AusUndEinsteigenActivity.EXTRA_AUS_ODER_EINSTEIGEN_ID,AusUndEinsteigenActivity.AUSSTEIGEN));
+            }
+        });
     }
 }
