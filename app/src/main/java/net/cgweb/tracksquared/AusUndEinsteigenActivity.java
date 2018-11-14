@@ -15,6 +15,9 @@ public class AusUndEinsteigenActivity extends AppCompatActivity {
     public static final int AUSSTEIGEN = 0;
     public static final int EINSTEIGEN = 1;
 
+    private int einOderAus;
+    private String title;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,15 +27,23 @@ public class AusUndEinsteigenActivity extends AppCompatActivity {
 
         int ausOderEin = getIntent().getIntExtra(EXTRA_AUS_ODER_EINSTEIGEN_ID,-1);
         if(ausOderEin == AUSSTEIGEN){
+            title = getApplicationContext().getString(R.string.leaving);
             setTitle(R.string.leaving);
         }else if (ausOderEin == EINSTEIGEN){
+            title = getApplicationContext().getString(R.string.joining);
             setTitle(R.string.joining);
         }else {
             Toast.makeText(getApplicationContext(),"error, false acces of the activity",Toast.LENGTH_LONG).show();
         }
 
-        Button buttonLeave = findViewById(R.id.leaveTrainButton);
-        buttonLeave.setOnClickListener(new View.OnClickListener() {
+        Button buttonLeaveOrEnter = findViewById(R.id.leaveOrEnterTrainButton);
+        buttonLeaveOrEnter.setText(title);
+        if (einOderAus == EINSTEIGEN){
+            buttonLeaveOrEnter.setBackgroundColor(getResources().getColor(R.color.green));
+        }else if (einOderAus == AUSSTEIGEN){
+            buttonLeaveOrEnter.setBackgroundColor(getResources().getColor(R.color.red));
+        }
+        buttonLeaveOrEnter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"Du bist ausgestiegen.",Toast.LENGTH_LONG).show();
