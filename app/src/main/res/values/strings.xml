@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Tracksquared</string>
+    <string name="app_name">Track²</string>
     <string name="title_activity_aus_und_einsteigen">AusUndEinsteigenActivity</string>
     <string name="joining">Einsteigen</string>
     <string name="leaving">Aussteigen</string>
+    <string name="hint_enter_train_id">Zugnummer hier eingeben...</string>
 </resources>
