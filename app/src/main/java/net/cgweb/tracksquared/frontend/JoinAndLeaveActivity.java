@@ -1,18 +1,15 @@
 package net.cgweb.tracksquared.frontend;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import net.cgweb.tracksquared.R;
 
-public class AusUndEinsteigenActivity extends AppCompatActivity {
+public class JoinAndLeaveActivity extends AppCompatActivity {
 
     public static final String EXTRA_AUS_ODER_EINSTEIGEN_ID = "ausOderEinsteigenID";
     public static final int AUSSTEIGEN = 0;
@@ -26,7 +23,7 @@ public class AusUndEinsteigenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_aus_und_einsteigen);
+        setContentView(R.layout.activity_join_and_leave);
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

@@ -6,8 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:showIn="@layout/activity_aus_und_einsteigen"
-        tools:context=".frontend.AusUndEinsteigenActivity">
+        tools:showIn="@layout/activity_join_and_leave"
+        tools:context=".frontend.JoinAndLeaveActivity">
 
     <EditText
         android:id="@+id/editTextConnection"
