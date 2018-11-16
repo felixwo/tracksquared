@@ -2,15 +2,17 @@ package net.cgweb.tracksquared.dialog;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.support.annotation.Nullable;
 import com.steinfluss.sf_fullscreendialog.FullScreenDialog;
 import net.cgweb.tracksquared.R;
+import net.cgweb.tracksquared.database.Station;
 import net.cgweb.tracksquared.database.Train;
 
 public class TrainOrStationPickerDialog extends FullScreenDialog {
     public enum TrainOrStation {Train,Station};
     private TrainOrStation mTrainOrStation;
 
-    private TrainSelectedListener mTrainSelectedListener;
+    private SelectedListener mSelectedListener;
 
     public TrainOrStationPickerDialog(Activity act, TrainOrStation trainOrStation) {
         super(act);
@@ -26,15 +28,14 @@ public class TrainOrStationPickerDialog extends FullScreenDialog {
 
     private void updateUI(DialogInterface dialogInterface){
         //todo adjust interface according to trainOrStation
-
     }
 
-    public TrainOrStationPickerDialog setTrainSelectedListener(TrainSelectedListener trainSelectedListener){
-        this.mTrainSelectedListener = trainSelectedListener;
+    public TrainOrStationPickerDialog setSelectedListener(SelectedListener selectedListener){
+        this.mSelectedListener = selectedListener;
         return this;
     }
 
-    public interface TrainSelectedListener{
-        void onTrainSelected(Train train);
+    public interface SelectedListener { //return train or station - other is null
+        void onSelected(@Nullable Train train,@Nullable Station station);
     }
 }

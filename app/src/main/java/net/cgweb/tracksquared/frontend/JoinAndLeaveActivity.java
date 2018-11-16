@@ -1,13 +1,14 @@
 package net.cgweb.tracksquared.frontend;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 import net.cgweb.tracksquared.R;
+import net.cgweb.tracksquared.database.Station;
 import net.cgweb.tracksquared.database.Train;
 import net.cgweb.tracksquared.dialog.TrainOrStationPickerDialog;
 
@@ -17,11 +18,12 @@ public class JoinAndLeaveActivity extends AppCompatActivity {
     public static final int AUSSTEIGEN = 0;
     public static final int EINSTEIGEN = 1;
 
-    private EditText editTextConnection;
     private Button chooseStationButton, chooseTrainButton;
 
     private int einOderAus;
     private String title;
+    private Train selectedTrain;
+    private Station selectedStation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,6 @@ public class JoinAndLeaveActivity extends AppCompatActivity {
         setContentView(R.layout.activity_join_and_leave);
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        editTextConnection = findViewById(R.id.editTextConnection);
         Button buttonLeaveOrEnter = findViewById(R.id.leaveOrEnterTrainButton);
         chooseStationButton = findViewById(R.id.choose_station_button);
         chooseTrainButton = findViewById(R.id.choose_train_button);
@@ -68,7 +69,6 @@ public class JoinAndLeaveActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //todo enter train
-                Toast.makeText(getApplicationContext(),title + ",\nZugnummer: " + editTextConnection.getText().toString(),Toast.LENGTH_LONG).show();
             }
         });
 
@@ -86,18 +86,18 @@ public class JoinAndLeaveActivity extends AppCompatActivity {
     }
 
     private void chooseTrainButtonClicked(View v){
-        new TrainOrStationPickerDialog(this, TrainOrStationPickerDialog.TrainOrStation.Train).setTrainSelectedListener(new TrainOrStationPickerDialog.TrainSelectedListener() {
+        new TrainOrStationPickerDialog(this, TrainOrStationPickerDialog.TrainOrStation.Train).setSelectedListener(new TrainOrStationPickerDialog.SelectedListener() {
             @Override
-            public void onTrainSelected(Train train) {
+            public void onSelected(@Nullable Train train, @Nullable Station station) {
                 //todo work with train
             }
         }).show();
     }
 
     private void chooseStationButtonClicked(View v){
-        new TrainOrStationPickerDialog(this, TrainOrStationPickerDialog.TrainOrStation.Station).setTrainSelectedListener(new TrainOrStationPickerDialog.TrainSelectedListener() {
+        new TrainOrStationPickerDialog(this, TrainOrStationPickerDialog.TrainOrStation.Station).setSelectedListener(new TrainOrStationPickerDialog.SelectedListener() {
             @Override
-            public void onTrainSelected(Train train) {
+            public void onSelected(@Nullable Train train, @Nullable Station station) {
                 //todo work with station
             }
         }).show();
