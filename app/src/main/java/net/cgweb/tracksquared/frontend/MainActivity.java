@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_settings){
             Toast.makeText(getApplicationContext(),"Settings selected",Toast.LENGTH_LONG).show();
-            //todo open settings activity
+            startActivity(new Intent(getApplicationContext(),ConfigureActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }
