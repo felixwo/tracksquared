@@ -34,10 +34,6 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="net.cgweb.tracksquared.frontend.MainActivity"/>
         </activity>
-        <activity
-            android:name=".frontend.ChooseStationActivity"
-            android:label="@string/title_activity_choose_station"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
