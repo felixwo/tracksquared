@@ -25,6 +25,15 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="net.cgweb.tracksquared.frontend.MainActivity"/>
         </activity>
+        <activity
+                android:name=".frontend.ConfigureActivity"
+                android:label="@string/title_activity_configure"
+                android:parentActivityName=".frontend.MainActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="net.cgweb.tracksquared.frontend.MainActivity"/>
+        </activity>
     </application>
 
 </manifest>
