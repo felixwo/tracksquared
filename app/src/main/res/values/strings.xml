@@ -6,4 +6,5 @@
     <string name="hint_enter_train_id">Zugnummer hier eingeben...</string>
     <string name="station">Bahnhof</string>
     <string name="station_enter">Bahnhof auswählen...</string>
+    <string name="settings">Einstellungen</string>
 </resources>

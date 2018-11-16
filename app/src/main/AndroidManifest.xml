@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".frontend.AusUndEinsteigenActivity"
+                android:name=".frontend.JoinAndLeaveActivity"
                 android:label="@string/title_activity_aus_und_einsteigen"
                 android:parentActivityName=".frontend.MainActivity"
                 android:theme="@style/AppTheme.NoActionBar">
