@@ -1,9 +1,6 @@
 package net.cgweb.tracksquared.frontend;
 
-
-import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -11,7 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import net.cgweb.tracksquared.R;
-import android.view.View;
+import net.cgweb.tracksquared.database.Train;
+import net.cgweb.tracksquared.dialog.TrainOrStationPickerDialog;
 
 public class JoinAndLeaveActivity extends AppCompatActivity {
 
@@ -20,12 +18,10 @@ public class JoinAndLeaveActivity extends AppCompatActivity {
     public static final int EINSTEIGEN = 1;
 
     private EditText editTextConnection;
+    private Button chooseStationButton, chooseTrainButton;
 
     private int einOderAus;
     private String title;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +29,24 @@ public class JoinAndLeaveActivity extends AppCompatActivity {
         setContentView(R.layout.activity_join_and_leave);
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        editTextConnection = findViewById(R.id.editTextConnection);
+        Button buttonLeaveOrEnter = findViewById(R.id.leaveOrEnterTrainButton);
+        chooseStationButton = findViewById(R.id.choose_station_button);
+        chooseTrainButton = findViewById(R.id.choose_train_button);
+
+        chooseTrainButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chooseTrainButtonClicked(v);
+            }
+        });
+        chooseStationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chooseStationButtonClicked(v);
+            }
+        });
+
 
         einOderAus = getIntent().getIntExtra(EXTRA_AUS_ODER_EINSTEIGEN_ID,-1);
         if(einOderAus == AUSSTEIGEN){
@@ -44,8 +58,6 @@ public class JoinAndLeaveActivity extends AppCompatActivity {
         }else {
             Toast.makeText(getApplicationContext(),"error, false access of the activity",Toast.LENGTH_LONG).show();
         }
-        editTextConnection = findViewById(R.id.editTextConnection);
-        Button buttonLeaveOrEnter = findViewById(R.id.leaveOrEnterTrainButton);
         buttonLeaveOrEnter.setText(title);
         if (einOderAus == EINSTEIGEN){
             buttonLeaveOrEnter.setBackgroundColor(getResources().getColor(R.color.green));
@@ -60,7 +72,7 @@ public class JoinAndLeaveActivity extends AppCompatActivity {
             }
         });
 
-
+        
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -73,5 +85,22 @@ public class JoinAndLeaveActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    private void chooseTrainButtonClicked(View v){
+        new TrainOrStationPickerDialog(this, TrainOrStationPickerDialog.TrainOrStation.Train).setTrainSelectedListener(new TrainOrStationPickerDialog.TrainSelectedListener() {
+            @Override
+            public void onTrainSelected(Train train) {
+                //todo work with train
+            }
+        }).show();
+    }
+
+    private void chooseStationButtonClicked(View v){
+        new TrainOrStationPickerDialog(this, TrainOrStationPickerDialog.TrainOrStation.Station).setTrainSelectedListener(new TrainOrStationPickerDialog.TrainSelectedListener() {
+            @Override
+            public void onTrainSelected(Train train) {
+                //todo work with station
+            }
+        }).show();
+    }
 
 }
