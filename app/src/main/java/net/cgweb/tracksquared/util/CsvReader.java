@@ -1,4 +1,4 @@
-package net.cgweb.tracksquared.database;
+package net.cgweb.tracksquared.util;
 
 import android.content.Context;
 
@@ -9,12 +9,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class csvreader {
+public class CsvReader {
     Context context;
     String fileName;
     List<String[]> rows = new ArrayList<>();
 
-    public csvreader(Context context, String fileName) {
+    public CsvReader(Context context, String fileName) {
         this.context = context;
         this.fileName = fileName;
     }
