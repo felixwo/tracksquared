@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">Track²</string>
-    <string name="title_activity_aus_und_einsteigen">AusUndEinsteigenActivity</string>
-    <string name="joining">Einsteigen</string>
-    <string name="leaving">Aussteigen</string>
-    <string name="hint_enter_train_id">Zug auswählen...</string>
-    <string name="station">Bahnhof</string>
-    <string name="station_enter">Bahnhof auswählen...</string>
-    <string name="settings">Einstellungen</string>
-    <string name="title_activity_choose_station">ChooseStationActivity</string>
-    <string name="title_activity_configure">@string/settings</string>
-    <string name="select_train">Zug auswählen</string>
+    <string name="title_activity_aus_und_einsteigen">Join</string>
+    <string name="joining">Join</string>
+    <string name="leaving">Leave</string>
+    <string name="hint_enter_train_id">Select train...</string>
+    <string name="station">Station</string>
+    <string name="station_enter">Select station...</string>
+    <string name="settings">Settings</string>
+    <string name="title_activity_configure" translatable="false">@string/settings</string>
+    <string name="select_train">Select train</string>
+    <string name="select_station">Select station</string>
 </resources>
