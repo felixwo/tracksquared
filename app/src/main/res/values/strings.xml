@@ -7,4 +7,5 @@
     <string name="station">Bahnhof</string>
     <string name="station_enter">Bahnhof auswählen...</string>
     <string name="settings">Einstellungen</string>
+    <string name="title_activity_choose_station">ChooseStationActivity</string>
 </resources>
