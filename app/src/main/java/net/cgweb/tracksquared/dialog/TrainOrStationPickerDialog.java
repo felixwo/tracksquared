@@ -9,6 +9,7 @@ import net.cgweb.tracksquared.database.Station;
 import net.cgweb.tracksquared.database.Train;
 
 public class TrainOrStationPickerDialog extends FullScreenDialog {
+
     public enum TrainOrStation {Train,Station};
     private TrainOrStation mTrainOrStation;
 
@@ -18,7 +19,7 @@ public class TrainOrStationPickerDialog extends FullScreenDialog {
         super(act);
         setContentViewRes(R.layout.train_picker_dialog_layout);
         this.mTrainOrStation = trainOrStation;
-        this.setOnShowListener(new OnShowListener() {
+        this.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
             public void onShow(DialogInterface dialog) {
                 updateUI(dialog);
