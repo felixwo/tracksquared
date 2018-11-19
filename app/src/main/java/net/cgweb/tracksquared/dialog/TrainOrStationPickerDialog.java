@@ -3,7 +3,6 @@ package net.cgweb.tracksquared.dialog;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.support.annotation.Nullable;
-import com.steinfluss.sf_fullscreendialog.FullScreenDialog;
 import net.cgweb.tracksquared.R;
 import net.cgweb.tracksquared.database.Station;
 import net.cgweb.tracksquared.database.Train;
@@ -16,7 +15,7 @@ public class TrainOrStationPickerDialog extends FullScreenDialog {
     private SelectedListener mSelectedListener;
 
     public TrainOrStationPickerDialog(Activity act, TrainOrStation trainOrStation) {
-        super(act);
+        super(act, R.layout.train_picker_dialog_layout);
         setContentViewRes(R.layout.train_picker_dialog_layout);
         this.mTrainOrStation = trainOrStation;
         this.setOnShowListener(new DialogInterface.OnShowListener() {

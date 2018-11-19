@@ -95,12 +95,7 @@ public class JoinAndLeaveActivity extends AppCompatActivity {
     }
 
     private void chooseStationButtonClicked(View v){
-        new TrainOrStationPickerDialog(this, TrainOrStationPickerDialog.TrainOrStation.Station).setSelectedListener(new TrainOrStationPickerDialog.SelectedListener() {
-            @Override
-            public void onSelected(@Nullable Train train, @Nullable Station station) {
-                //todo work with station
-            }
-        }).show();
+        new TrainOrStationPickerDialog(this, TrainOrStationPickerDialog.TrainOrStation.Station).show();
     }
 
 }
