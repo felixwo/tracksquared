@@ -1,4 +1,6 @@
-package net.cgweb.tracksquared.database;
+package net.cgweb.tracksquared.database.user;
+
+import net.cgweb.tracksquared.database.journey.Journey;
 
 public class User {
     private String name;

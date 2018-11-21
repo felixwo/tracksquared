@@ -1,16 +1,32 @@
-package net.cgweb.tracksquared.database;
+package net.cgweb.tracksquared.database.train;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+
+@Entity
 public class Train {
     public enum TrainType {ICE, IC, RE, RB, S, NE, X}; //x = nicht zuordorbar
 
+    @PrimaryKey
+    private long TrainId;
     private String trainNumber;
     private TrainType trainType;
     private double fillState; //wie voll der zug ist
 
-    public Train(String trainNumber, TrainType trainType, double fillState) {
+    public Train(long trainId, String trainNumber, TrainType trainType, double fillState) {
+        TrainId = trainId;
         this.trainNumber = trainNumber;
         this.trainType = trainType;
         this.fillState = fillState;
+    }
+
+    public long getTrainId() {
+        return TrainId;
+    }
+
+    public void setTrainId(long trainId) {
+        TrainId = trainId;
     }
 
     public TrainType getTrainType() {

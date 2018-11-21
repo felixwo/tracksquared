@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import net.cgweb.tracksquared.R;
-import net.cgweb.tracksquared.database.Station;
-import net.cgweb.tracksquared.database.Train;
+import net.cgweb.tracksquared.database.station.Station;
+import net.cgweb.tracksquared.database.train.Train;
 import net.cgweb.tracksquared.dialog.TrainOrStationPickerDialog;
 
 public class JoinAndLeaveActivity extends AppCompatActivity {

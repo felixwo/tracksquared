@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.support.annotation.Nullable;
 import net.cgweb.tracksquared.R;
-import net.cgweb.tracksquared.database.Station;
-import net.cgweb.tracksquared.database.Train;
+import net.cgweb.tracksquared.database.station.Station;
+import net.cgweb.tracksquared.database.train.Train;
 
 public class TrainOrStationPickerDialog extends FullScreenDialog {
 
